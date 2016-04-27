@@ -1,7 +1,7 @@
-# 🍪 cookiejar
+# Packreg
 > Unofficial Bower registry with RethinkDB and elasticsearch   
 
-[![bitHound Overall Score](https://www.bithound.io/github/BenMann/cookiejar/badges/score.svg)](https://www.bithound.io/github/BenMann/cookiejar)   
+[![bitHound Overall Score](https://www.bithound.io/github/packreg/packreg-registry/badges/score.svg)](https://www.bithound.io/github/packreg/packreg-registry)   
 
 cookiejar rebuilds the Bower registry by using RethinkDB as main database and automatic replication to elasticsearch. Only relevant data is indexed and all actions on Rethink are mirrored to elastic.
 Adding elasticsearch to the stack makes search and analytics easier and more reliable. Cookiejar is built modular and allows different workers to provide the actual data, while
