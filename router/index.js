@@ -55,11 +55,13 @@ var router = Router.createClass([
     * @param {string} id
     * @return {JSONG} packagesById graph
     */
-    route: "packages.byId[{keys:id}]",
+    route: "packages.by[{keys:method}][{keys:identifier}]",
     get: function(req) {
-      var packID = req.id[0];
-      return elastic.getPackageById(packID).then(function(model){
-        return {path:["packages", "byId", packID], value: $atom(model.packageById[packID])};
+      var method = req.method[0];
+      var identifier = req.identifier[0];      
+
+      return elastic.getPackageBy(method, identifier).then(function(model){
+        return {path:["packages", "by", method], value: $atom(model.packageBy[method])};
       });
     }
   },

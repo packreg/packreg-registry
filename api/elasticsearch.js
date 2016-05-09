@@ -32,24 +32,20 @@ function getPackages(packName) {
       query: {
         "multi_match" : {
           "query": packName,
-          "type": "best_fields",
           "fields": ["name", "description", "keywords", "owner"],
           "minimum_should_match": "25%",
-          "fuzziness" : 2,
+          "fuzziness" : 0.6,
         }
       }
     }
   }).then(function(searchresult) {
     var model = {};
     searchresult.hits.hits.forEach(function(package, index) {
-// console.log(package._source.name);
       var pkgName = package._source.name,
           pkgVals = package._source;
       model[pkgName] = pkgVals;
     });
-    console.log(model);
     return model;
-
   });
 };
 
@@ -60,7 +56,10 @@ function getPackages(packName) {
 * @param {string} packID
 * @returns {object} model (contains single package)
 * =========================================== */
-function getPackageById(packID) {
+function getPackageBy(method, identifier) {
+
+  var toMatch = {};
+  toMatch[method] = identifier;
 
   return elastic.search({
     index: 'packages',
@@ -70,17 +69,16 @@ function getPackageById(packID) {
         "bool": {
           "must":
           {
-            "match": {"id": packID}
+            "match": toMatch
           }
         }
       }
     }
   }).then(function(searchresult) {
-    var model = {packageById:{}};
-    var matchingID = searchresult.hits.hits[0]._source.id,
-        pkgVals = searchresult.hits.hits[0]._source;
+    var model = {packageBy:{}};
+    var pkgVals = searchresult.hits.hits[0]._source;
 
-    model.packageById[matchingID] = pkgVals;
+    model.packageBy[method] = pkgVals;    
     return model;
   });
 };
@@ -90,5 +88,5 @@ function getPackageById(packID) {
 module.exports = {
   getRegistryInfo: getRegistryInfo,
   getPackages: getPackages,
-  getPackageById: getPackageById,
+  getPackageBy: getPackageBy,
 };
