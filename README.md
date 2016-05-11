@@ -3,9 +3,7 @@
 
 [![bitHound Overall Score](https://www.bithound.io/github/packreg/packreg-registry/badges/score.svg)](https://www.bithound.io/github/packreg/packreg-registry)   
 
-cookiejar rebuilds the Bower registry by using RethinkDB as main database and automatic replication to elasticsearch. Only relevant data is indexed and all actions on Rethink are mirrored to elastic.
-Adding elasticsearch to the stack makes search and analytics easier and more reliable. Cookiejar is built modular and allows different workers to provide the actual data, while
-providing an easy to use API, which clients can interact with.
+Packreg is a package-registry that combines packages of different package-managers like Bower and npm with statistics and an "immutable" API, which clients can easily interact with. It is built on RethinkDB and elasticsearch which are accessed through Netflix' Falcor and populated by different workers and analyzers that provide the actual metadata.
 
 ### Requirements
 rethink DB 2.2.2   
@@ -16,7 +14,6 @@ elasticsearch 2.1.0
 - run elasticsearch
 - run /init to populate the DBs
 - use [packreg](https://github.com/packreg/packreg-webapp) to query the database
-- enjoy cookies 🍪
 
 ### Populating
 The route `/init` will populate your databases with the included dataset in `/data`. You can always populate with newer data by fetching `$ curl http://bower.herokuapp.com/packages
@@ -29,21 +26,21 @@ Cookiejar uses Netflix' [Falcor](https://github.com/Netflix/falcor) to hide diff
 
 To communicate with the registry, you can use the following functions, provided by the endpoint:   
 
-:o: `registryInfo`  
+`registryInfo`  
 ```
 model.get("registryInfo").then(function(response) {
   document.write(response.json.registryInfo.version);
 });
 ```
 
-:o: `packages.length`   
+`packages.length`   
 ```
 model.get("packages.length").then(function(response) {
   document.write(response.json.packages.length);
 });
 ```
 
-:o: `packages`  
+`packages`  
 ```
 model.get(["packages", "bower"]).then(function(response) {
   var res = response.json.packagesByName.bower;
@@ -53,25 +50,24 @@ model.get(["packages", "bower"]).then(function(response) {
 });
 ```
 
-:o: `packages.create`
+`packages.create`
 ```
 model.call(["packages", "create", "bower", "git://github.com/BenMann/testrepo"]).then(function(response){        
   document.write(response.json.createPackage.test123["git://github.com/BenMann/testrepo"]);
 });
 ```
 
-:o: `packages.remove`
+`packages.remove`
 ```
 model.call(["packages", "remove", "bower"]).then(function(response){        
   document.write(response.json.createPackage.test123["git://github.com/BenMann/testrepo"]);
 });
 ```
   
-Internal use:
-:o: `packageById`   
+`packageBy`   
 ```
-model.get(["packageById", "4J_wSnMIbr8x", "url"]).then(function(response) {
-  document.write(response.json.packageById["4J_wSnMIbr8x"].url);
+model.get(["packageBy", "id", "4J_wSnMIbr8x"]).then(function(response) {
+  document.write(response.json.packageBy["id"]);
 });
 ```
    
