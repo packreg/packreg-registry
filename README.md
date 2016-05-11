@@ -9,7 +9,7 @@ Packreg is a package-registry that combines packages of different package-manage
 rethink DB 2.2.2   
 elasticsearch 2.1.0   
 
-### Using cookiejar
+### Using packreg
 - run RethinkDB
 - run elasticsearch
 - run /init to populate the DBs
@@ -20,7 +20,7 @@ The route `/init` will populate your databases with the included dataset in `/da
 ` and using that JSON.
 
 ### Querying the registry :mag_right: 
-Cookiejar uses Netflix' [Falcor](https://github.com/Netflix/falcor) to hide different routes behind one single endpoint. Every request to the database is then internally routed by Falcor and returns an on-the-fly generated JSON Graph. This means all client-side communication goes through one route like this:  
+Packreg uses Netflix' [Falcor](https://github.com/Netflix/falcor) to hide different routes behind one single endpoint. Every request to the database is then internally routed by Falcor and returns an on-the-fly generated JSON Graph. This means all client-side communication goes through one route like this:  
 
 `var model = new falcor.Model({source: new falcor.HttpDataSource('http://registry.com/model.json') });`   
 
@@ -70,6 +70,3 @@ model.get(["packageBy", "id", "4J_wSnMIbr8x"]).then(function(response) {
   document.write(response.json.packageBy["id"]);
 });
 ```
-   
---
-[Here's a good start](https://www.bithound.io/github/BenMann/cookiejar/master/techdebt) if you'd like to contribute!
