@@ -15,7 +15,7 @@ elasticsearch 2.1.0
 - run RethinkDB
 - run elasticsearch
 - run /init to populate the DBs
-- use [cookiemonster](https://github.com/BenMann/cookiemonster) to query the database
+- use [packreg](https://github.com/packreg/packreg-webapp) to query the database
 - enjoy cookies 🍪
 
 ### Populating
