@@ -5,7 +5,6 @@ var config = require('../config/config.js'),
 
 function fetchFromGithub() {
 
-  // var repository = "IndigoUnited/node-cross-spawn";
   var repository = "bower/bower";
 
   tokenDealer(tokens, (token, exhaust) => {
