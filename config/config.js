@@ -19,6 +19,9 @@ config.isPublic = true;
 config.skipValidation = false;
 config.skipNormalization = false;
 
-
+config.githubTokens = [
+    'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+];
 
 module.exports = config;

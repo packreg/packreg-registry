@@ -18,12 +18,14 @@
     "falcor": "^0.1.15",
     "falcor-express": "^0.1.2",
     "falcor-router": "^0.2.12",
+    "got": "^6.3.0",
     "q": "^1.4.1",
     "request": "^2.69.0",
     "rethinkdb": "^2.2.1",
     "shortid": "^2.2.4",
     "ssh-url": "^0.1.5",
-    "thinky": "^2.2.3"
+    "thinky": "^2.2.3",
+    "token-dealer": "^1.2.1"
   },
   "devDependencies": {}
 }

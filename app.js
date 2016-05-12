@@ -10,6 +10,7 @@ var config = require('./config/config.js'),
     router = require('./router'),
     init = require('./router/init'),
     npmWorker = require('./workers/npm-worker.js'),
+    githubWorker = require('./workers/github-worker.js'),
     app = express();
 
 app.use(cors);
@@ -28,6 +29,7 @@ app.use(function(req, res, next) {
 
 app.use('/init', init);
 app.use('/npm', npmWorker.fetchFromNpm);
+app.use('/github', githubWorker.fetchFromGithub);
 
 app.listen(config.port);
 console.log(
