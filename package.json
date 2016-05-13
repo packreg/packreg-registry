@@ -1,7 +1,7 @@
 {
-  "name": "cookiejar",
+  "name": "packreg-registry",
   "version": "1.0.0",
-  "description": "registry-like store with RethinkDB and elasticsearch",
+  "description": "A package registry for multiple sources",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,7 @@
     "falcor-express": "^0.1.2",
     "falcor-router": "^0.2.12",
     "got": "^6.3.0",
+    "kue": "^0.11.0",
     "q": "^1.4.1",
     "request": "^2.69.0",
     "rethinkdb": "^2.2.1",

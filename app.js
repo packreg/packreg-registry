@@ -5,12 +5,12 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     q = require("q");
 
-var config = require('./config/config.js'),
-    cors = require('./config/cors.js'),
-    router = require('./router'),
-    init = require('./router/init'),
-    npmWorker = require('./workers/npm-worker.js'),
-    githubWorker = require('./workers/github-worker.js'),
+var config = require('./lib/config/config.js'),
+    cors = require('./lib/config/cors.js'),
+    router = require('./lib/router'),
+    init = require('./lib/router/init'),
+    npmCollector = require('./lib/collectors/npm-collector.js'),
+    githubAnalyzer = require('./lib/analyzers/github-analyzer.js'),
     app = express();
 
 app.use(cors);
@@ -28,8 +28,8 @@ app.use(function(req, res, next) {
 });
 
 app.use('/init', init);
-app.use('/npm', npmWorker.fetchFromNpm);
-app.use('/github', githubWorker.fetchFromGithub);
+app.use('/npm', npmCollector.fetchFromNpm);
+app.use('/github', githubAnalyzer.fetchFromGithub);
 
 app.listen(config.port);
 console.log(
