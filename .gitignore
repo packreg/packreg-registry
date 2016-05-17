@@ -2,3 +2,4 @@ node_modules/
 rethinkdb_data/
 lib/config/local.*
 /test/
+dump.rdb
