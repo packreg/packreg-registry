@@ -10,6 +10,7 @@ var config = require('./lib/config/config.js'),
     router = require('./lib/router'),
     init = require('./lib/router/init'),
     npmCollector = require('./lib/collectors/npm-collector.js'),
+    bowerCollector = require('./lib/collectors/bower-collector.js'),
     githubAnalyzer = require('./lib/analyzers/github-analyzer.js'),
     app = express();
 
@@ -29,6 +30,7 @@ app.use(function(req, res, next) {
 
 app.use('/init', init);
 app.use('/npm', npmCollector.fetchFromNpm);
+app.use('/bower', bowerCollector.fetchFromBower);
 app.use('/github', githubAnalyzer.fetchFromGithub);
 
 app.listen(config.port);
