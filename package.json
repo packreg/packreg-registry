@@ -29,7 +29,6 @@
     "thinky": "^2.2.3",
     "token-dealer": "^1.2.1",
     "touch": "^1.0.0",
-    "yargs": "^4.7.1"
   },
   "devDependencies": {}
 }
