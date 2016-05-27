@@ -10,7 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.14.2",
+    "chalk": "^1.1.3",
     "child-process-promise": "^1.1.0",
+    "commander": "^2.9.0",
     "elasticsearch": "^10.0.1",
     "event-stream": "^3.3.2",
     "express": "^4.13.3",
@@ -26,7 +28,8 @@
     "ssh-url": "^0.1.5",
     "thinky": "^2.2.3",
     "token-dealer": "^1.2.1",
-    "touch": "^1.0.0"
+    "touch": "^1.0.0",
+    "yargs": "^4.7.1"
   },
   "devDependencies": {}
 }
