@@ -12,7 +12,6 @@ var config = require('./lib/config/config.js'),
     npmCollector = require('./lib/collectors/npm-collector.js'),
     bowerCollector = require('./lib/collectors/bower-collector.js'),
     composerCollector = require('./lib/collectors/composer-collector.js'),
-    githubAnalyzer = require('./lib/analyzers/github-analyzer.js'),
     app = express();
 
 app.use(cors);
@@ -33,7 +32,6 @@ app.use('/init', init);
 app.use('/npm', npmCollector.fetchFromNpm);
 app.use('/bower', bowerCollector.fetchFromBower);
 app.use('/composer', composerCollector.fetchFromComposer);
-app.use('/github', githubAnalyzer.fetchFromGithub);
 
 app.listen(config.port);
 console.log(

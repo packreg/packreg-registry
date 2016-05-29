@@ -20,6 +20,7 @@
     "falcor-express": "^0.1.2",
     "falcor-router": "^0.2.12",
     "got": "^6.3.0",
+    "is-github-url": "^1.2.2",
     "kue": "^0.11.0",
     "q": "^1.4.1",
     "request": "^2.69.0",
@@ -28,7 +29,7 @@
     "ssh-url": "^0.1.5",
     "thinky": "^2.2.3",
     "token-dealer": "^1.2.1",
-    "touch": "^1.0.0",
+    "touch": "^1.0.0"
   },
   "devDependencies": {}
 }
