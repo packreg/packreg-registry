@@ -4,10 +4,31 @@
   "description": "A package registry for multiple sources",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
-  "author": "Ben Mann",
+  "ava": {
+    "files": [
+      "test/*.js"
+    ]
+  },
+  "author": "Benjamin Mann <benmann89@gmail.com> (http://benmann.de)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/packreg/packreg-registry/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/packreg/packreg-registry.git"
+  },
+  "keywords": [
+    "registry",
+    "package",
+    "module",
+    "search",
+    "npm",
+    "bower",
+    "composer"
+  ],
   "dependencies": {
     "body-parser": "^1.14.2",
     "chalk": "^1.1.3",
@@ -31,5 +52,10 @@
     "token-dealer": "^1.2.1",
     "touch": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "ava": "^0.15.1"
+  },
+  "bin": {
+    "packreg": "./packreg.js"
+  }
 }
