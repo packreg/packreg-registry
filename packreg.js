@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 var packreg = require("commander"),
-    chalk = require("chalk");
+    chalk = require("chalk"),
+    queue = require("./cli/queue.js"),
+    collect = require("./cli/collect.js");
 
 packreg.version("1.0.0").usage("<command>");
 
@@ -21,10 +23,11 @@ packreg.command("queue")
   var options = process.argv.slice(3)[0];
   
   if(options == "--clear" || options == "-c"){
-    // run clear command
+    queue.clearQueue();
+  } else {
+    queue.showStats();
   }
 
-  // run queue stats
 });
 
 
