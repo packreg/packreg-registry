@@ -10,9 +10,19 @@ packreg.version("1.0.0").usage("<command>");
 // TODO: add options to run specific collectors (bower/npm/...)
 packreg.command("collect")
 .description("Starts collecting packages and pushes them into the analyzing queue.")
+.option("-b, --bower", "Start collecting packages from Bower.")
+.option("-n, --npm", "Start collecting packages from npm.")
+.option("-c, --composer", "Start collecting packages form Composer.")
 .action(function() {
-  console.log(chalk.green("running collectors..."));
-  // run collectors
+  var options = process.argv.slice(3)[0];
+
+  if(options == "--bower" || options == "-b"){
+    collect.bower();
+  } else if(options == "--npm" || options == "-n"){
+    collect.npm();
+  } else if (options == "--composer" || options == "-c") {
+    collect.composer();
+  }
 });
 
 
@@ -21,7 +31,7 @@ packreg.command("queue")
 .option("-c, --clear", "Clear the analyzing queue of all remaining jobs.")
 .action(function(cmd, options) {
   var options = process.argv.slice(3)[0];
-  
+
   if(options == "--clear" || options == "-c"){
     queue.clearQueue();
   } else {
