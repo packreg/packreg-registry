@@ -36,6 +36,7 @@
     "commander": "^2.9.0",
     "elasticsearch": "^10.0.1",
     "event-stream": "^3.3.2",
+    "exec": "^0.2.1",
     "express": "^4.13.3",
     "falcor": "^0.1.15",
     "falcor-express": "^0.1.2",
