@@ -11,7 +11,7 @@ The app itself is divided into different parts:
 - Analyzers
 - API
 
-The main database is RethinkDB, which automatically replicates everything to elasticsearch. In general writ actions go through Rethink, while every read action dos directly to elastic. Routing requests is handled by Netflix’ Falcor.
+The main database is RethinkDB, which automatically replicates everything to elasticsearch. In general write actions go through Rethink, while every read action goes directly to elastic. Routing requests is handled by [Netflix’ Falcor](https://github.com/Netflix/falcor).
 
 ### Architeciture
 [Here's](https://github.com/packreg/packreg-registry/blob/master/docs/architecture.md) a small overview of the project's architecture.
